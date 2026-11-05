@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Country Development &amp; Economic Performance — Saja Ahmed Saeed</title>
+<meta name="description" content="Power BI case study: comparing 231 countries on economy, health and population, with a star-schema model, DAX measures, four insights and three recommendations.">
+<meta name="author" content="Saja Ahmed Saeed">
+<meta name="theme-color" content="#0E0004">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Country Development &amp; Economic Performance — Power BI case study">
+<meta property="og:description" content="Comparing 231 countries on economy, health and population, and why the average country is a misleading benchmark.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&family=Noto+Naskh+Arabic:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="../index.html">Saja Ahmed Saeed</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#work" aria-current="page">Projects</a></li>
+      <li><a href="../index.html#method">How I work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="wrap case-hero">
+    <a class="back-link" href="../index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>All projects</a>
+    <p class="eyebrow">Case study · Business case</p>
+    <h1>Country Development &amp; Economic Performance</h1>
+    <p class="lead">A Power BI dashboard comparing 231 countries on economy, health and population, built to show the typical country, not just the giants.</p>
+    <ul class="case-facts">
+      <li>Solo project</li>
+      <li>Power BI · Power Query · DAX</li>
+      <li>Economics &amp; Development</li>
+      <li>4 report pages</li>
+    </ul>
+  </section>
+
+  <div class="wrap" style="padding-bottom: clamp(48px, 7vw, 80px);">
+    <div class="case-cover reveal">
+      <img src="../assets/img/countries-executive-overview.webp" width="1664" height="966" alt="Executive Overview page: KPI cards, average GDP per capita by region, population by country size, GDP ranking table and a world map by development level" fetchpriority="high">
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">01 · The business question</p>
+      <h2>One place to compare development across countries and regions</h2>
+      <div class="prose">
+        <p>The scenario: an international economic research organization needs a single dashboard for senior management to:</p>
+      </div>
+      <ul class="checklist" style="margin-top: 16px;">
+        <li><strong>Compare</strong> economic performance between countries and regions</li>
+        <li><strong>Monitor</strong> health, population, trade and growth indicators</li>
+        <li><strong>Support</strong> strategic policy and investment decisions</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">02 · The data</p>
+      <h2>A country-indicators dataset, captured as one snapshot</h2>
+      <div class="stat-pair">
+        <div><span class="big">263</span><span class="small">raw entities</span></div>
+        <div><span class="big">231</span><span class="small">countries analyzed</span></div>
+        <div><span class="big">44</span><span class="small">indicators in the raw file</span></div>
+      </div>
+      <p class="note">The dataset has no dates. Country names that no longer exist, such as Serbia and Montenegro, suggest it was compiled before 2006, so the figures describe that period, not today.</p>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">03 · Preparation</p>
+      <h2>Cleaned in Power Query, every step documented</h2>
+      <ul class="checklist">
+        <li><strong>Repaired the structure:</strong> a broken header row and columns read as text were fixed and re-typed.</li>
+        <li><strong>Removed what isn’t a country:</strong> one aggregate (the European Union) and 31 near-empty territories, taking 263 entities to 231 countries.</li>
+        <li><strong>Standardized and enriched:</strong> 15 country names corrected, and every country assigned to one of seven regions.</li>
+        <li><strong>Kept missing values as “No Data”, never zero,</strong> so averages and rankings use only countries that report a value.</li>
+      </ul>
+      <p class="note">Validation: every output table holds 231 rows, with no duplicate countries and no country without a region.</p>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">04 · Model &amp; analytical decisions</p>
+      <h2>A star schema, and measures that describe reality</h2>
+      <div class="prose">
+        <p>Geography is the hub: every topic table holds one row per country and joins it on Country, so one slicer filters the whole report.</p>
+      </div>
+
+      <figure class="schema reveal">
+        <svg viewBox="0 0 760 340" role="img" aria-labelledby="schema-title">
+          <title id="schema-title">Star schema: the Geography table in the centre, connected one-to-one to Economy, Population, Health, Trade_Finance, Energy, Infrastructure and Military</title>
+          <g stroke="#601C31" stroke-width="2">
+            <line x1="380" y1="170" x2="110" y2="50"/>
+            <line x1="380" y1="170" x2="380" y2="40"/>
+            <line x1="380" y1="170" x2="650" y2="50"/>
+            <line x1="380" y1="170" x2="90" y2="190"/>
+            <line x1="380" y1="170" x2="670" y2="190"/>
+            <line x1="380" y1="170" x2="220" y2="300"/>
+            <line x1="380" y1="170" x2="540" y2="300"/>
+          </g>
+          <g font-family="Inter, system-ui, sans-serif" font-size="15" text-anchor="middle">
+            <rect x="290" y="138" width="180" height="64" rx="12" fill="#601C31"/>
+            <text x="380" y="166" fill="#F3ECEE" font-weight="600" font-size="17">Geography</text>
+            <text x="380" y="187" fill="#E7A9BB" font-size="13">Country · Region · Area</text>
+            <g fill="#31081F" stroke="#364156">
+              <rect x="40" y="28" width="140" height="44" rx="10"/>
+              <rect x="310" y="18" width="140" height="44" rx="10"/>
+              <rect x="580" y="28" width="140" height="44" rx="10"/>
+              <rect x="20" y="168" width="140" height="44" rx="10"/>
+              <rect x="600" y="168" width="140" height="44" rx="10"/>
+              <rect x="140" y="278" width="160" height="44" rx="10"/>
+              <rect x="460" y="278" width="160" height="44" rx="10"/>
+            </g>
+            <g fill="#F3ECEE">
+              <text x="110" y="55">Economy</text>
+              <text x="380" y="45">Population</text>
+              <text x="650" y="55">Health</text>
+              <text x="90" y="195">Trade_Finance</text>
+              <text x="670" y="195">Energy</text>
+              <text x="220" y="305">Infrastructure</text>
+              <text x="540" y="305">Military</text>
+            </g>
+          </g>
+        </svg>
+        <figcaption>One row per country in every table; relationships are one-to-one on Country.</figcaption>
+      </figure>
+
+      <div class="decisions" style="margin-top: 48px;">
+        <div class="decision reveal">
+          <span class="figure">$243B vs $16B</span>
+          <h3>Median next to average</h3>
+          <p>A few giant economies pull the average GDP far above the typical country, so the median sits beside it.</p>
+        </div>
+        <div class="decision reveal">
+          <span class="figure">Weighted</span>
+          <h3>Life expectancy of the average person</h3>
+          <p>Weighted by population, not one vote per country, so large countries count as much as their people do.</p>
+        </div>
+        <div class="decision reveal">
+          <span class="figure">No Data ≠ 0</span>
+          <h3>Missing stays missing</h3>
+          <p>Blank values are classified first, so a country with no data never lands in the lowest category.</p>
+        </div>
+      </div>
+
+      <pre class="code-block reveal"><code><span class="c">// Share of world GDP — stays relative to the whole world, whatever the slicers</span>
+GDP Share % =
+DIVIDE (
+    [Total GDP],
+    <span class="k">CALCULATE</span> ( [Total GDP], <span class="k">REMOVEFILTERS</span> () )
+)</code></pre>
+      <p class="code-caption">One of the report’s DAX measures. REMOVEFILTERS clears every filter in the denominator, so a country’s share is always measured against the world total.</p>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">05 · The dashboard</p>
+      <h2>Three pages and a country profile</h2>
+      <div class="gallery">
+        <div class="shot reveal">
+          <button type="button" data-full="../assets/img/countries-executive-overview.webp" data-caption="Executive Overview" data-alt="Executive Overview page of the dashboard" aria-label="Enlarge Executive Overview">
+            <img src="../assets/img/countries-executive-overview.webp" width="1664" height="966" loading="lazy" alt="">
+          </button>
+          <h3>Executive Overview</h3>
+          <p>KPIs, a GDP ranking with share of world GDP, and a world map by development level.</p>
+        </div>
+        <div class="shot reveal">
+          <button type="button" data-full="../assets/img/countries-health-development.webp" data-caption="Health &amp; Development" data-alt="Health and Development page of the dashboard" aria-label="Enlarge Health and Development">
+            <img src="../assets/img/countries-health-development.webp" width="1661" height="964" loading="lazy" alt="">
+          </button>
+          <h3>Health &amp; Development</h3>
+          <p>Life expectancy by region, birth versus death rates, and income against life expectancy for every country.</p>
+        </div>
+        <div class="shot reveal">
+          <button type="button" data-full="../assets/img/countries-economic-performance.webp" data-caption="Economic Performance" data-alt="Economic Performance page of the dashboard" aria-label="Enlarge Economic Performance">
+            <img src="../assets/img/countries-economic-performance.webp" width="1660" height="962" loading="lazy" alt="">
+          </button>
+          <h3>Economic Performance</h3>
+          <p>Imports versus exports for the top traders, the fastest and slowest growth, and median inflation and growth by region.</p>
+        </div>
+        <div class="shot reveal">
+          <button type="button" data-full="../assets/img/countries-country-profile.webp" data-caption="Country Profile (drill-through), shown for India" data-alt="Country Profile drill-through page, shown for India" aria-label="Enlarge Country Profile">
+            <img src="../assets/img/countries-country-profile.webp" width="1059" height="597" loading="lazy" alt="">
+          </button>
+          <h3>Country Profile · drill-through</h3>
+          <p>Open any country from another page to see its rank, key indicators, and how it compares with its region and the world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">06 · Insights</p>
+      <h2>What the dashboard shows</h2>
+      <ul class="insights">
+        <li class="insight reveal">
+          <span class="figure">51%</span>
+          <h3>Wealth is concentrated</h3>
+          <p>The five largest economies hold 51% of world GDP. The average country has $243B of GDP; the median country only $16B.</p>
+        </li>
+        <li class="insight reveal">
+          <span class="figure">54 vs 78 yrs</span>
+          <h3>Income and health move together</h3>
+          <p>Life expectancy in low-income versus high-income countries. Infant mortality falls from 77 to 7 per 1,000 births.</p>
+        </li>
+        <li class="insight reveal">
+          <span class="figure">44 vs 72 yrs</span>
+          <h3>HIV explains the biggest exceptions</h3>
+          <p>Life expectancy where HIV prevalence is 5% or more, against below 1%. Botswana, Eswatini and South Africa sit far below what their income predicts.</p>
+        </li>
+        <li class="insight reveal">
+          <span class="figure">21 vs 2</span>
+          <h3>Population pressure sits in three regions</h3>
+          <p>Births minus deaths per 1,000 people in Sub-Saharan Africa, South Asia and the Middle East &amp; North Africa, against Europe &amp; Central Asia. Migration is not included.</p>
+        </li>
+      </ul>
+      <p class="note">Low income means GDP per capita below $2,000; high income, $15,000 or more. These are associations across countries in this dataset, not proven causes.</p>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">07 · Recommendations</p>
+      <h2>What management should consider</h2>
+      <ol class="recs">
+        <li class="reveal"><h3>Target health investment where income is lowest</h3><p>Start where infant mortality exceeds 100 per 1,000 births, such as Angola, Afghanistan and Sierra Leone, and where HIV prevalence is 5% or more.</p></li>
+        <li class="reveal"><h3>Support stability in high-inflation economies</h3><p>31 of the 221 countries with data have inflation of 10% or more. Pair support with monitoring of external debt.</p></li>
+        <li class="reveal"><h3>Report medians and per-capita figures beside totals</h3><p>Totals are dominated by a few large economies. Show the median and the number of countries behind every indicator.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">08 · Limitations</p>
+      <h2>What this data cannot say</h2>
+      <ul class="checklist">
+        <li>One undated snapshot, so no trends over time.</li>
+        <li>Findings are associations between countries, not proof of cause.</li>
+        <li>Regions and category cut-offs are my own analytical choices, not official classifications.</li>
+        <li>Some indicators are missing for more than half of the countries; averages use only countries with data.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="wrap next-project">
+      <span class="subtle">Next project</span>
+      <a class="next" href="youth-travel-sentiment.html">Public Sentiment on Egypt’s Youth Travel Initiative <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Saja Ahmed Saeed</span>
+    <a href="../index.html#contact">Get in touch</a>
+  </div>
+</footer>
+
+<dialog id="lightbox" class="lightbox" aria-label="Enlarged screenshot">
+  <img src="" alt="">
+  <div class="lb-bar"><span class="lb-caption"></span><button type="button" class="lb-close">Close</button></div>
+</dialog>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

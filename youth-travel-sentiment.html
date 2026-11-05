@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Public Sentiment on Egypt’s Youth Travel Initiative — Saja Ahmed Saeed</title>
+<meta name="description" content="Python team project: analyzing Egyptian Arabic social-media comments on the “Know Your Country” youth travel initiative to find what drives public opinion.">
+<meta name="author" content="Saja Ahmed Saeed">
+<meta name="theme-color" content="#0E0004">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Public Sentiment on Egypt’s Youth Travel Initiative — case study">
+<meta property="og:description" content="What Egyptian Arabic comments reveal about access, fairness and who the trips leave out.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&family=Noto+Naskh+Arabic:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="../index.html">Saja Ahmed Saeed</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#work" aria-current="page">Projects</a></li>
+      <li><a href="../index.html#method">How I work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="wrap case-hero">
+    <a class="back-link" href="../index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>All projects</a>
+    <p class="eyebrow">Case study · Public opinion</p>
+    <h1>Public Sentiment on Egypt’s Youth Travel Initiative</h1>
+    <p class="lead">What public comments on the “Know Your Country” initiative’s posts reveal about access, fairness and who the trips leave out.</p>
+    <ul class="case-facts">
+      <li class="team">Team project</li>
+      <li>Python · Pandas · Google Colab</li>
+      <li>Egyptian Arabic comments</li>
+    </ul>
+  </section>
+
+  <div class="wrap" style="padding-bottom: clamp(48px, 7vw, 80px);">
+    <div class="case-cover sent-cover reveal">
+      <div class="comment-cover" role="img" aria-label="Three Arabic comments from the dataset, labeled positive, neutral and negative">
+        <div class="bubble right" dir="rtl"><span lang="ar">الرحلة الأخيرة كانت ممتازة، شكرًا لكل القائمين.</span><span class="chip chip-pos" dir="ltr">Positive</span></div>
+        <div class="bubble left" dir="rtl"><span lang="ar">أتمنى يكون في رحلة لواحة سيوة قريبًا.</span><span class="chip chip-neu" dir="ltr">Neutral</span></div>
+        <div class="bubble right" dir="rtl"><span lang="ar">الرحلات جميلة، لكن التقديم صعب والمعلومات مش واضحة.</span><span class="chip chip-neg" dir="ltr">Negative</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">01 · The question</p>
+      <h2>What does the public really think, without running a survey?</h2>
+      <div class="prose">
+        <p>Egypt’s Ministry of Youth and Sports runs travel initiatives that help young people discover their country, including <strong>“Know Your Country”</strong> (<span lang="ar" dir="rtl" style="font-family: var(--font-arabic);">اعرف بلدك</span>). The team set out to understand public opinion of these trips from what people write on social media, as a faster alternative to surveys, and to turn it into input for improving the programs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">02 · Data &amp; approach</p>
+      <h2>Real comments, read and labeled</h2>
+      <ul class="checklist">
+        <li><strong>Data:</strong> public comments in Egyptian Arabic, exported from the initiative’s social-media posts.</li>
+        <li><strong>Processing:</strong> loaded and prepared in Python with Pandas, in Google Colab.</li>
+        <li><strong>Labeling:</strong> each comment classified as positive, negative or neutral, then read for recurring themes.</li>
+      </ul>
+      <p class="note">Comments are quoted below as text only, without names, usernames or profile images.</p>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">03 · What people said</p>
+      <h2>The themes behind the negative comments</h2>
+      <ul class="themes">
+        <li class="theme reveal">
+          <div><h3>Fairness of selection</h3><p class="theme-desc">People feel places go to the same people, and ask how participants are chosen.</p></div>
+          <div class="quote"><p lang="ar" dir="rtl">دايمًا بنقدم وبيتحجز لناس تانية، فين الشفافية؟</p><p class="tr">“We always apply and the places go to other people. Where’s the transparency?”</p></div>
+        </li>
+        <li class="theme reveal">
+          <div><h3>Registration and capacity</h3><p class="theme-desc">Trips fill very quickly and the application process feels hard.</p></div>
+          <div class="quote"><p lang="ar" dir="rtl">مش مصدقة إن الرحلة اتقفلت بعد نص ساعة!</p><p class="tr">“I can’t believe the trip closed after half an hour!”</p></div>
+        </li>
+        <li class="theme reveal">
+          <div><h3>Which governorates are included</h3><p class="theme-desc">Commenters from some governorates say trips never reach them.</p></div>
+          <div class="quote"><p lang="ar" dir="rtl">في محافظات دايمًا مش بيطلع لها رحلات، وده مش عدل.</p><p class="tr">“Some governorates never get trips, and that isn’t fair.”</p></div>
+        </li>
+        <li class="theme reveal">
+          <div><h3>Communication and schedules</h3><p class="theme-desc">People want trips announced earlier and dates made clear.</p></div>
+          <div class="quote"><p lang="ar" dir="rtl">مفيش تواصل واضح، مش عارفين المواعيد.</p><p class="tr">“There’s no clear communication; we don’t know the dates.”</p></div>
+        </li>
+        <li class="theme highlight reveal">
+          <div><h3>People outside the age limit</h3><p class="theme-desc">Older adults and families ask to take part in trips aimed at young people.</p></div>
+          <div class="quote">
+            <p lang="ar" dir="rtl">عايزين نروح معاكم بس إحنا فوق 45، مش كبار يعني!</p><p class="tr">“We want to come with you, but we’re over 45 — that’s not old!”</p>
+            <p lang="ar" dir="rtl" style="margin-top: 10px;">نفسي في رحلات للأسر وكبار السن.</p><p class="tr">“I wish there were trips for families and older people.”</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">04 · Insight</p>
+      <h2>The complaints are about access, not the trips themselves</h2>
+      <div class="prose">
+        <p>Many negative comments begin by praising the trips, then object to how places are allocated, how fast they fill and which governorates are included. Alongside these, a <strong>recurring request</strong> comes from people outside the eligible age group, including older adults and families, who want to take part too.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">05 · Recommendation</p>
+      <h2>Open a path for older age groups</h2>
+      <ol class="recs">
+        <li class="reveal"><h3>Extend eligibility, or create a separate program</h3><p>Offer older adults and families their own trips, rather than leaving them outside the current age limit.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="case-section">
+    <div class="wrap">
+      <p class="eyebrow label">06 · Limitations</p>
+      <h2>What these comments cannot say</h2>
+      <ul class="checklist">
+        <li>People who comment on social media are not a representative sample of all participants.</li>
+        <li>The comments come from one initiative’s posts, so the findings may not apply to other programs.</li>
+        <li>Sentiment labels reflect the team’s classification of each comment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="wrap next-project">
+      <span class="subtle">Next project</span>
+      <a class="next" href="country-development.html">Country Development &amp; Economic Performance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Saja Ahmed Saeed</span>
+    <a href="../index.html#contact">Get in touch</a>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
